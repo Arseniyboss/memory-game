@@ -6,8 +6,8 @@ export const Container = styled.main`
 `
 
 export const Heading = styled.h1`
+  margin-top: var(--spacing);
   font-size: 2.3rem;
-  margin-top: 1.5rem;
   text-align: center;
   color: #fff;
 `
@@ -15,8 +15,8 @@ export const Heading = styled.h1`
 export const CardContainer = styled.section`
   display: grid;
   grid-template-columns: repeat(auto-fill, minmax(160px, 1fr));
-  gap: 1.5rem;
-  padding: 1.5rem;
+  gap: var(--spacing);
+  padding: var(--spacing);
 
   @media screen and (max-width: 400px) {
     grid-template-columns: repeat(2, 1fr);

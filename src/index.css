@@ -4,6 +4,10 @@
   margin: 0;
 }
 
+:root {
+  --spacing: 1.5rem;
+}
+
 body {
   font-family: Arial, Helvetica, sans-serif;
   background: #101522;
