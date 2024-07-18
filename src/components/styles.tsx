@@ -10,7 +10,6 @@ export const CardImage = styled.img`
   box-shadow: 0 0 0.5rem 0 rgba(0, 0, 0, 1);
   border-radius: 0.25rem;
   transition: all ease-in 0.2s;
-  object-fit: contain; // removes lighthouse warning "Serves images with low resolution"
 `
 
 export const CardFrontImage = styled(CardImage)<Props>`
