@@ -19,6 +19,8 @@ const Card = ({ card, flipped, disabled, handleChoice }: Props) => {
       <CardBackImage
         src='/img/cover.png'
         alt=''
+        width={300}
+        height={300}
         $flipped={flipped}
         onClick={handleClick}
       />

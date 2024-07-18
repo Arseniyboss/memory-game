@@ -7,6 +7,7 @@ type Props = {
 export const CardImage = styled.img`
   display: block;
   width: 100%;
+  height: auto;
   box-shadow: 0 0 0.5rem 0 rgba(0, 0, 0, 1);
   border-radius: 0.25rem;
   transition: all ease-in 0.2s;
