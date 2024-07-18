@@ -7,7 +7,6 @@ export const Container = styled.main`
 
 export const Heading = styled.h1`
   margin-top: var(--spacing);
-  font-size: 2.3rem;
   text-align: center;
   color: #fff;
 `
