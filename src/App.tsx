@@ -1,5 +1,5 @@
 import { useState, useEffect } from 'react'
-import { Card as CardType, ShuffledCard, Choice } from './types'
+import { ShuffledCard, Choice } from './types'
 import { getShuffledCards } from './utils'
 import { initialCards } from './cards'
 import { Container, Heading, CardContainer } from './styles'
@@ -22,7 +22,8 @@ const App = () => {
     setChoiceTwo(null)
   }
 
-  const handleChoice = (card: CardType) => {
+  const handleChoice = (card: ShuffledCard) => {
+    if (choiceOne && choiceOne.id === card.id) return
     choiceOne ? setChoiceTwo(card) : setChoiceOne(card)
   }
 
@@ -33,9 +34,9 @@ const App = () => {
   useEffect(() => {
     if (!choiceOne || !choiceTwo) return
     setDisabled(true)
-    if (choiceOne.src === choiceTwo.src) {
+    if (choiceOne.img === choiceTwo.img) {
       const updatedCards = cards.map((card) => {
-        return card.src === choiceOne.src ? { ...card, matched: true } : card
+        return card.img === choiceOne.img ? { ...card, matched: true } : card
       })
       setCards(updatedCards)
       resetTurn()

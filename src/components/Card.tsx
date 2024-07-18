@@ -1,11 +1,11 @@
-import { Card as CardType } from '@/types'
+import { ShuffledCard } from '@/types'
 import { CardFrontImage, CardBackImage } from './styles'
 
 type Props = {
-  card: CardType
+  card: ShuffledCard
   flipped: boolean
   disabled: boolean
-  handleChoice: (card: CardType) => void
+  handleChoice: (card: ShuffledCard) => void
 }
 
 const Card = ({ card, flipped, disabled, handleChoice }: Props) => {
@@ -15,7 +15,7 @@ const Card = ({ card, flipped, disabled, handleChoice }: Props) => {
   }
   return (
     <article>
-      <CardFrontImage $flipped={flipped} src={card.src} alt='' />
+      <CardFrontImage $flipped={flipped} src={card.img} alt='' />
       <CardBackImage
         src='/img/cover.png'
         alt=''
