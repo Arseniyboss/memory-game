@@ -11,6 +11,10 @@ const App = () => {
   const [choiceTwo, setChoiceTwo] = useState<Choice>(null)
   const [disabled, setDisabled] = useState(false)
 
+  const isFlipped = (card: ShuffledCard) => {
+    return card === choiceOne || card === choiceTwo || card.matched
+  }
+
   const shuffleCards = () => {
     const shuffledCards = getShuffledCards(initialCards)
     setCards(shuffledCards)
@@ -31,7 +35,7 @@ const App = () => {
   }
 
   const handleChoice = (card: ShuffledCard) => {
-    if (choiceOne && choiceOne.id === card.id) return
+    if (disabled || card.matched || choiceOne?.id === card.id) return
     choiceOne ? setChoiceTwo(card) : setChoiceOne(card)
   }
 
@@ -64,8 +68,7 @@ const App = () => {
           <Card
             key={card.id}
             card={card}
-            flipped={card === choiceOne || card === choiceTwo || card.matched}
-            disabled={disabled}
+            flipped={isFlipped(card)}
             handleChoice={handleChoice}
           />
         ))}

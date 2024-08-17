@@ -4,13 +4,11 @@ import { CardFrontImage, CardBackImage } from './styles'
 type Props = {
   card: ShuffledCard
   flipped: boolean
-  disabled: boolean
   handleChoice: (card: ShuffledCard) => void
 }
 
-const Card = ({ card, flipped, disabled, handleChoice }: Props) => {
+const Card = ({ card, flipped, handleChoice }: Props) => {
   const handleClick = () => {
-    if (disabled) return
     handleChoice(card)
   }
   return (
