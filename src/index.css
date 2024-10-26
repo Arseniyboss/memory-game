@@ -11,4 +11,5 @@
 body {
   font-family: Arial, Helvetica, sans-serif;
   background: #101522;
+  overscroll-behavior: none;
 }
