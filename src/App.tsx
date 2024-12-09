@@ -1,4 +1,4 @@
-import { useState, useEffect, useCallback } from 'react'
+import { useState, useEffect } from 'react'
 import { ShuffledCard, Choice } from './types'
 import { getShuffledCards } from './utils'
 import { initialCards } from './cards'
@@ -20,13 +20,13 @@ const App = () => {
     setCards(shuffledCards)
   }
 
-  const flipMatchingCards = useCallback(() => {
+  const flipMatchingCards = () => {
     const updatedCards = cards.map((card) => {
       return card.img === choiceOne?.img ? { ...card, matched: true } : card
     })
     setCards(updatedCards)
     resetTurn()
-  }, [cards, choiceOne])
+  }
 
   const resetTurn = () => {
     setDisabled(false)
@@ -51,7 +51,7 @@ const App = () => {
     }
     const timeout = setTimeout(() => resetTurn(), 1000)
     return () => clearTimeout(timeout)
-  }, [choiceOne, choiceTwo, cards, flipMatchingCards])
+  }, [choiceOne, choiceTwo, cards])
 
   useEffect(() => {
     const isGameOver = cards.every((card) => card.matched)
