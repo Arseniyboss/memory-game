@@ -1,26 +1,23 @@
-import { ShuffledCard } from '@/types'
+import { Card as CardProps } from '@/types'
+import { useGameContext } from '@/GameContext'
 import { CardFrontImage, CardBackImage } from './styles'
 
 type Props = {
-  card: ShuffledCard
-  flipped: boolean
-  handleChoice: (card: ShuffledCard) => void
+  card: CardProps
 }
 
-const Card = ({ card, flipped, handleChoice }: Props) => {
-  const handleClick = () => {
-    handleChoice(card)
-  }
+const Card = ({ card }: Props) => {
+  const { handleChoice, isFlipped } = useGameContext()
   return (
     <article>
-      <CardFrontImage $flipped={flipped} src={card.img} alt='' />
+      <CardFrontImage $flipped={isFlipped(card)} src={card.img} alt="" />
       <CardBackImage
-        src='/img/cover.png'
-        alt=''
+        src="/img/cover.png"
+        alt=""
         width={300}
         height={300}
-        $flipped={flipped}
-        onClick={handleClick}
+        $flipped={isFlipped(card)}
+        onClick={() => handleChoice(card)}
       />
     </article>
   )

@@ -3,12 +3,17 @@ import styled from 'styled-components'
 export const Container = styled.main`
   max-width: 850px;
   margin: 0 auto;
-`
 
-export const Heading = styled.h1`
-  margin-top: var(--spacing);
-  text-align: center;
-  color: #fff;
+  h1,
+  p {
+    margin-top: var(--spacing);
+    text-align: center;
+    color: white;
+  }
+
+  p {
+    font-size: 1.2rem;
+  }
 `
 
 export const CardContainer = styled.section`

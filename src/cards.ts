@@ -1,6 +1,8 @@
 import { Card } from './types'
 
-export const initialCards: Card[] = [
+type Cards = Omit<Card, 'id'>[]
+
+export const cards: Cards = [
   { img: '/img/helmet.png', matched: false },
   { img: '/img/potion.png', matched: false },
   { img: '/img/ring.png', matched: false },

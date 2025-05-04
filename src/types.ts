@@ -1,10 +1,7 @@
 export type Card = {
+  id: string
   img: string
   matched: boolean
 }
 
-export interface ShuffledCard extends Card {
-  id: string
-}
-
-export type Choice = ShuffledCard | null
+export type Choice = Card | null
